@@ -3,8 +3,8 @@ agent any
   stages {
     stage('Create Source') {
       steps {
-        cd ~
-          mkdir 'source'
+        sh 'cd ~'
+        sh  'mkdir 'source''
       }
     }
     stage('git clone') {
