@@ -49,8 +49,6 @@ resource "aws_instance" "terraform-example" {
 
   ami = var.ami[var.region]
 
- # key_name = aws_key_pair.auth.id
-
   vpc_security_group_ids = [aws_security_group.terraform-example.id]
 
   subnet_id = aws_subnet.bakery_subnet.id
@@ -107,10 +105,4 @@ resource "aws_elb" "terraform-example" {
     lb_protocol       = "http"
   }
 }
-
-/*  resource "aws_key_pair" "auth" {
-  key_name   = var.key_name
-  public_key = "ssh key location" 
-}
-*/
 
