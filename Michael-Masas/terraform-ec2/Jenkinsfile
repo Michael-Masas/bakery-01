@@ -1,4 +1,7 @@
 pipeline {
+	    parameters {
+        choice(name: 'AWS Region', choices: ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'], description: 'Pick a Region to Deploy')
+    }
 agent any
   stages {
     stage('Create Source') {
@@ -8,10 +11,15 @@ agent any
         sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
       }
 	}
-        stage('Terraform Plan') {
+        stage('Terraform Init') {
           steps {
             sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
       	  }
+      }
+        stage('Terraform Plan') {
+          steps {
+            sh 'terraform plan /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
+          }
       }
      }
     }
