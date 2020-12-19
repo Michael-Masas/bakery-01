@@ -3,7 +3,7 @@ pipeline {
   stages {
 		stage ('Get Source') {
 			steps {
-				git 'https://github.com/Michael-Masas/bakery-01/tree/terraform-ec2/Michael-Masas/terraform-ec2'
+				git 'https://github.com/Michael-Masas/bakery-01.git'
 						}
 					}
 				}
