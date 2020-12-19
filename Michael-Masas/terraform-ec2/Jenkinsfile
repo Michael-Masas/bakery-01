@@ -3,10 +3,8 @@ agent any
   stages {
     stage('Create Source') {
       steps {
-        sh 'rm -rf /tmp/source'
-        sh 'cd /tmp'
-        sh 'mkdir source'
-        git "https://github.com/Michael-Masas/bakery-01.git"
+        sh 'rm -rf /tmp/source && cd /tmp && mkdir source'
+        sh 'cd /tmp/source && git "https://github.com/Michael-Masas/bakery-01.git"'
       }
     }
   }
