@@ -1,9 +1,16 @@
-stages {
-  stage('git clone') {
-    steps {
-      git clone 'https://github.com/Michael-Masas/bakery-01.git'
+pipeline {
+  ...
+  stages {
+    stage('Create Source') {
+      steps {
+        cd ~
+          mkdir 'source'
+      }
     }
-
-    agent any
+    stage('git clone') {
+      steps {
+        git clone "https://github.com/Michael-Masas/bakery-01.git"
+      }
+    }
   }
 }
