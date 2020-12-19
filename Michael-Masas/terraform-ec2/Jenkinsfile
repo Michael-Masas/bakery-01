@@ -4,12 +4,12 @@ agent any
     stage('Create Source') {
       steps {
         sh 'cd ~'
-        sh  'mkdir 'source''
+        sh 'mkdir 'source''
       }
     }
     stage('git clone') {
       steps {
-        git clone "https://github.com/Michael-Masas/bakery-01.git"
+        sh 'git clone "https://github.com/Michael-Masas/bakery-01.git"'
       }
     }
   }
