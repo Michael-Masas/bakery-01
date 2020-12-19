@@ -1,12 +1,12 @@
 pipeline {
-  agent any
-  stages {
-		stage ('Get Source') {
-			steps {
-				git clone 'https://github.com/Michael-Masas/bakery-01.git'
-						}
-					}
-				}
-			}	
-		
+stages {
+  stage('git clone') {
+    steps {
+      git clone 'https://github.com/Michael-Masas/bakery-01.git'
+    }
 
+    agent any
+  }
+
+  }
+}
