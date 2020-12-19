@@ -4,7 +4,7 @@ agent any
     stage('Create Source') {
       steps {
         sh 'cd ~'
-        sh 'mkdir 'source''
+        sh 'mkdir source'
       }
     }
     stage('git clone') {
