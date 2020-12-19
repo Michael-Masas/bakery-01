@@ -10,7 +10,8 @@ agent any
      stage('Terraform Plan') {
       steps {
         sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
-      }
+      	}
     }
   }
+}
 }
