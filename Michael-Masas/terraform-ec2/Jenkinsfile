@@ -3,7 +3,7 @@ agent any
   stages {
     stage('Create Source') {
       steps {
-        sh 'cd ~'
+        sh 'cd /tmp'
         sh 'mkdir source'
       }
     }
