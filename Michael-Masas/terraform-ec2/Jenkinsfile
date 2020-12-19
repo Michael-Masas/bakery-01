@@ -1,5 +1,5 @@
 pipeline {
-  agent { any }
+  agent { label 'any' }
   stages {
 		stage ('Get Source') {
 			steps {
