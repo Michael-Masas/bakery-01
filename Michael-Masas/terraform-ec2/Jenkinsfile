@@ -3,6 +3,7 @@ agent any
   stages {
     stage('Create Source') {
       steps {
+        sh 'rm -rf /tmp/source'
         sh 'cd /tmp'
         sh 'mkdir source'
         sh 'git clone "https://github.com/Michael-Masas/bakery-01.git"'
