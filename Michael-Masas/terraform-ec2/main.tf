@@ -9,8 +9,9 @@ terraform {
  
 provider "aws" {
   region = var.region
-  shared_credentials_file = "/root/.aws/credentials"
-  profile = "default"
+  assume_role {
+    role_arn = "arn:aws:iam::025030922378:user/terraform-admin" 
+    }
 }
 
 resource "aws_vpc" "bakery_vpc" {
