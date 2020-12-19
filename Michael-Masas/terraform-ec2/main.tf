@@ -10,7 +10,7 @@ terraform {
 provider "aws" {
   region = var.region
   shared_credentials_file = "/root/.aws/credentials"
-  profile = "terraform"
+  profile = "default"
 }
 
 resource "aws_vpc" "bakery_vpc" {
