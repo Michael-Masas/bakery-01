@@ -7,11 +7,11 @@ agent any
         sh 'cd /tmp/source && git clone "https://github.com/Michael-Masas/bakery-01.git"'
         sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
       }
-     stage('Terraform Plan') {
-      steps {
-        sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
-      	}
+        stage('Terraform Plan') {
+          steps {
+            sh 'terraform init /tmp/source/bakery-01/Michael-Masas/terraform-ec2/'
+      	  }
+      }
+     }
     }
   }
-}
-}
