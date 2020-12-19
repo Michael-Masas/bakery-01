@@ -7,6 +7,11 @@ terraform {
   }
 }
  
+provider "aws" {
+  region = var.region
+  shared_credentials_file = "/root/.aws/credentials"
+  profile = "terraform"
+}
 
 resource "aws_vpc" "bakery_vpc" {
   cidr_block = "10.0.0.0/16"
@@ -29,10 +34,6 @@ resource "aws_subnet" "bakery_subnet" {
   map_public_ip_on_launch = true
 }
 
-provider "aws" {
-  region = var.region
-}
-
 
 resource "aws_instance" "terraform-example" {
   # The connection block tells our provisioner how to
@@ -48,7 +49,7 @@ resource "aws_instance" "terraform-example" {
 
   ami = var.ami[var.region]
 
-  key_name = aws_key_pair.auth.id
+ # key_name = aws_key_pair.auth.id
 
   vpc_security_group_ids = [aws_security_group.terraform-example.id]
 
@@ -107,8 +108,9 @@ resource "aws_elb" "terraform-example" {
   }
 }
 
-resource "aws_key_pair" "auth" {
+/*  resource "aws_key_pair" "auth" {
   key_name   = var.key_name
-  public_key = '~/.ssh/id_rsa.pub' 
+  public_key = "ssh key location" 
 }
+*/
 
