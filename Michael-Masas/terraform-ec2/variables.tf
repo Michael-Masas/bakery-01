@@ -13,3 +13,13 @@ variable "ami" {
     us-west-2 = "ami-0686851c4e7b1a8e1"
   }
 }
+
+variable "aws_access_key" {
+  type = string
+  description = "AWS access key"
+}
+
+variable "aws_secret_key" {
+  type = string
+  description = "AWS secret key"
+}
