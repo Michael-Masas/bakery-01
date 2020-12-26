@@ -1,18 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
-}
- 
 provider "aws" {
   region = var.region
-  assume_role {
-    role_arn = "arn:aws:iam::025030922378:user/terraform-admin" 
-    }
-}
+  shared_credentials_file = "/root/.aws/credentials"
+  profile                 = "default"
+} 
 
 resource "aws_vpc" "bakery_vpc" {
   cidr_block = "10.0.0.0/16"
@@ -106,4 +96,3 @@ resource "aws_elb" "terraform-example" {
     lb_protocol       = "http"
   }
 }
-
