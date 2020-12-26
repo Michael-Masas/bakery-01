@@ -13,16 +13,3 @@ variable "ami" {
     us-west-2 = "ami-0686851c4e7b1a8e1"
   }
 }
-
-variable "public_key_path" {
-  description = <<DESCRIPTION
-Path to the SSH public key to be used for authentication.
-Ensure this keypair is added to your local SSH agent so provisioners can
-connect.
-Example: ~/.ssh/terraform.pub
-DESCRIPTION
-}
-
-variable "key_name" {
-  description = "Desired name of AWS key pair"
-}
