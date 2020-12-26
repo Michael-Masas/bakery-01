@@ -1,12 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
-}
- 
+provider "aws" {
+  region = var.region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+} 
 
 resource "aws_vpc" "bakery_vpc" {
   cidr_block = "10.0.0.0/16"
@@ -29,12 +25,6 @@ resource "aws_subnet" "bakery_subnet" {
   map_public_ip_on_launch = true
 }
 
-provider "aws" {
-  region = var.region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
-
 
 resource "aws_instance" "terraform-example" {
   # The connection block tells our provisioner how to
@@ -49,8 +39,6 @@ resource "aws_instance" "terraform-example" {
   instance_type = "t2.micro"
 
   ami = var.ami[var.region]
-
-  key_name = aws_key_pair.auth.id
 
   vpc_security_group_ids = [aws_security_group.terraform-example.id]
 
@@ -108,11 +96,4 @@ resource "aws_elb" "terraform-example" {
     lb_protocol       = "http"
   }
 }
-
-resource "aws_key_pair" "auth" {
-  key_name   = var.key_name
-  public_key = file(var.public_key_path)
-}
-
-
 
