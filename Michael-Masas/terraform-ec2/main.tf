@@ -2,6 +2,7 @@ provider "aws" {
   region = var.region
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
+  shared_credentials_file = "/root/.aws/credentials"
 } 
 
 resource "aws_vpc" "bakery_vpc" {
