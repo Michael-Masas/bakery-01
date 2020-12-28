@@ -11,12 +11,13 @@ agent any
 	}
         stage('Terraform Init') {
           steps {
+            sh 'cd Michael-Masas/terraform-ec2'		  
             sh 'terraform init'
       	  }
       }
         stage('Terraform Plan') {
           steps {
-
+            sh 'cd Michael-Masas/terraform-ec2'
             sh 'terraform plan'
           }
       }
